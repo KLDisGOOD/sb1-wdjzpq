@@ -1,0 +1,19 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap');
+
+body {
+  font-family: 'Tajawal', sans-serif;
+}
+
+/* Custom color classes */
+.bg-primary { background-color: #6620ca; }
+.bg-secondary { background-color: #50f387; }
+.bg-accent { background-color: #0eb7ed; }
+.text-primary { color: #6620ca; }
+.text-secondary { color: #50f387; }
+.text-accent { color: #0eb7ed; }
+
+/* Add any additional custom styles here */
