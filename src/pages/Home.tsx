@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowRight, Users, Building, Briefcase, Globe } from 'lucide-react';
+import { Link as RouterLink } from 'react-router-dom';
 
 interface HomeProps {
   language: 'en' | 'ar';
@@ -49,7 +50,7 @@ const Home: React.FC<HomeProps> = ({ language }) => {
     },
     ar: {
       hero: {
-        title: 'ربط مكاتب التوظيف السعودية بالوكالات الإثيوبية',
+        title: 'ربط مكاتب الاستقدام السعودية بالوكالات الإثيوبية',
         subtitle: 'تبسيط عملية توفير خادمات منزلية إثيوبيات مؤهلات',
         cta: 'خدماتنا'
       },
@@ -90,14 +91,18 @@ const Home: React.FC<HomeProps> = ({ language }) => {
   };
 
   return (
-    <div className="min-h-screen bg-white text-gray-800" dir={language === 'ar' ? 'rtl' : 'ltr'}>
+    <div className={`min-h-screen bg-white text-gray-800 ${language === 'ar' ? 'font-arabic' : 'font-english'}`} dir={language === 'ar' ? 'rtl' : 'ltr'}>
       <section className="bg-primary py-20">
         <div className="container mx-auto px-4">
           <h1 className="text-4xl md:text-6xl font-bold mb-4 text-white">{content[language].hero.title}</h1>
           <p className="text-xl mb-8 text-white">{content[language].hero.subtitle}</p>
-          <a href="/services" className="bg-white text-primary px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors inline-flex items-center">
-            {content[language].hero.cta} {language === 'en' ? <ArrowRight className="ml-2" /> : <ArrowRight className="mr-2" />}
-          </a>
+          <RouterLink 
+            to="/services"
+            className="bg-white text-primary px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors inline-flex items-center"
+          >
+            {content[language].hero.cta}
+            {language === 'en' ? <ArrowRight className="ml-2" /> : <ArrowRight className="mr-2" />}
+          </RouterLink>
         </div>
       </section>
 

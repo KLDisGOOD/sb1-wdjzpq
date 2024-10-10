@@ -1,5 +1,6 @@
 import React from 'react';
-import { Facebook, Twitter, Linkedin } from 'lucide-react';
+import { Link as RouterLink } from 'react-router-dom';
+import { FaWhatsapp } from 'react-icons/fa';
 
 interface FooterProps {
   language: 'en' | 'ar';
@@ -12,19 +13,32 @@ const Footer: React.FC<FooterProps> = ({ language }) => {
       tagline: 'Bridging Saudi recruitment offices with Ethiopian agencies',
       quickLinks: 'Quick Links',
       connect: 'Connect With Us',
-      rights: '© 2024 WorkWell. All rights reserved.'
+      rights: '© 2024 WorkWell. All rights reserved.',
+      navigation: [
+        { text: 'Home', path: '/' },
+        { text: 'Services', path: '/services' },
+        { text: 'Contact', path: '/contact' }
+      ]
     },
     ar: {
       title: 'ورك ويل',
       tagline: 'ربط مكاتب التوظيف السعودية بالوكالات الإثيوبية',
       quickLinks: 'روابط سريعة',
       connect: 'تواصل معنا',
-      rights: '© 2024 ورك ويل. جميع الحقوق محفوظة.'
+      rights: '© 2024 ورك ويل. جميع الحقوق محفوظة.',
+      navigation: [
+        { text: 'الرئيسية', path: '/' },
+        { text: 'الخدمات', path: '/services' },
+        { text: 'اتصل بنا', path: '/contact' }
+      ]
     }
   };
 
   return (
-    <footer className="bg-gray-100 text-gray-800 py-8" dir={language === 'ar' ? 'rtl' : 'ltr'}>
+    <footer 
+      className={`bg-gray-100 text-gray-800 py-8 ${language === 'ar' ? 'font-arabic' : 'font-english'}`} 
+      dir={language === 'ar' ? 'rtl' : 'ltr'}
+    >
       <div className="container mx-auto px-4">
         <div className="flex flex-wrap justify-between">
           <div className="w-full md:w-1/3 mb-6 md:mb-0">
@@ -34,17 +48,30 @@ const Footer: React.FC<FooterProps> = ({ language }) => {
           <div className="w-full md:w-1/3 mb-6 md:mb-0">
             <h4 className="text-lg font-semibold mb-2 text-primary">{content[language].quickLinks}</h4>
             <ul className="space-y-2">
-              <li><a href="/" className="hover:text-primary transition-colors">{language === 'en' ? 'Home' : 'الرئيسية'}</a></li>
-              <li><a href="/services" className="hover:text-primary transition-colors">{language === 'en' ? 'Services' : 'الخدمات'}</a></li>
-              <li><a href="/contact" className="hover:text-primary transition-colors">{language === 'en' ? 'Contact' : 'اتصل بنا'}</a></li>
+              {content[language].navigation.map((item, index) => (
+                <li key={index}>
+                  <RouterLink 
+                    to={item.path} 
+                    className="hover:text-primary transition-colors"
+                  >
+                    {item.text}
+                  </RouterLink>
+                </li>
+              ))}
             </ul>
           </div>
           <div className="w-full md:w-1/3">
             <h4 className="text-lg font-semibold mb-2 text-primary">{content[language].connect}</h4>
-            <div className="flex space-x-4">
-              <a href="#" className="hover:text-primary transition-colors"><Facebook /></a>
-              <a href="#" className="hover:text-primary transition-colors"><Twitter /></a>
-              <a href="#" className="hover:text-primary transition-colors"><Linkedin /></a>
+            <div className={`flex ${language === 'ar' ? 'space-x-reverse' : 'space-x-4'}`}>
+              <a 
+                href="https://wa.me/+251701396715" 
+                className="hover:text-primary transition-colors" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                aria-label="WhatsApp"
+              >
+                <FaWhatsapp size={24} />
+              </a>
             </div>
           </div>
         </div>

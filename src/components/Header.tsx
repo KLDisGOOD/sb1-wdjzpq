@@ -22,32 +22,31 @@ const Header: React.FC<HeaderProps> = ({ language, toggleLanguage }) => {
 
   return (
     <header
-      className="bg-white text-gray-800 shadow-md"
+      className={`bg-white text-gray-800 shadow-md ${language === 'ar' ? 'font-arabic' : 'font-english'}`}
       dir={language === 'ar' ? 'rtl' : 'ltr'}
     >
       <div className="container mx-auto px-4 py-4">
         <div className="flex justify-between items-center">
+          {/* Logo and Title */}
           <div className="flex items-center">
             <img
               src="/workwell-logo.png"
               alt="WorkWell Logo"
-              className="h-12 w-auto mr-2"
+              className={`h-12 w-auto ${language === 'ar' ? 'ml-2' : 'mr-2'}`}
             />
             <span className="text-2xl font-bold text-primary">
               {language === 'en' ? 'WorkWell' : 'ورك ويل'}
             </span>
           </div>
+
+          {/* Desktop Navigation */}
           <div className="hidden md:flex items-center">
             <nav>
-              <ul className="flex space-x-6 mr-6">
+              <ul className={`flex space-x-6 ${language === 'ar' ? 'space-x-reverse' : ''} mr-6`}>
                 {navItems[language].map((item, index) => (
                   <li key={index}>
                     <RouterLink
-                      to={
-                        index === 0
-                          ? '/'
-                          : `/${navItems.en[index].toLowerCase()}`
-                      }
+                      to={index === 0 ? '/' : `/${navItems.en[index].toLowerCase()}`}
                       className="hover:text-primary transition-colors"
                     >
                       {item}
@@ -56,11 +55,13 @@ const Header: React.FC<HeaderProps> = ({ language, toggleLanguage }) => {
                 ))}
               </ul>
             </nav>
-            <LanguageToggle
-              language={language}
-              toggleLanguage={toggleLanguage}
-            />
+            {/* Language Toggle Button */}
+            <div className={`ml-4 ${language === 'ar' ? 'mr-4' : 'ml-4'}`}>
+              <LanguageToggle language={language} toggleLanguage={toggleLanguage} />
+            </div>
           </div>
+
+          {/* Mobile Menu Button */}
           <div className="md:hidden">
             <button
               onClick={toggleMenu}
@@ -70,6 +71,8 @@ const Header: React.FC<HeaderProps> = ({ language, toggleLanguage }) => {
             </button>
           </div>
         </div>
+
+        {/* Mobile Menu */}
         {isMenuOpen && (
           <div className="md:hidden mt-4">
             <nav>
@@ -77,11 +80,7 @@ const Header: React.FC<HeaderProps> = ({ language, toggleLanguage }) => {
                 {navItems[language].map((item, index) => (
                   <li key={index}>
                     <RouterLink
-                      to={
-                        index === 0
-                          ? '/'
-                          : `/${navItems.en[index].toLowerCase()}`
-                      }
+                      to={index === 0 ? '/' : `/${navItems.en[index].toLowerCase()}`}
                       className="block py-2 hover:text-primary transition-colors"
                       onClick={() => setIsMenuOpen(false)}
                     >
@@ -91,11 +90,8 @@ const Header: React.FC<HeaderProps> = ({ language, toggleLanguage }) => {
                 ))}
               </ul>
             </nav>
-            <div className="mt-4">
-              <LanguageToggle
-                language={language}
-                toggleLanguage={toggleLanguage}
-              />
+            <div className={`mt-4 ${language === 'ar' ? 'text-right' : ''}`}>
+              <LanguageToggle language={language} toggleLanguage={toggleLanguage} />
             </div>
           </div>
         )}

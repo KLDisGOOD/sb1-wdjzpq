@@ -6,6 +6,10 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        'english': ['League Spartan', 'sans-serif'],
+        'arabic': ['Cairo', 'sans-serif'], // Add Arabic font here
+      },
       colors: {
         primary: '#6620ca',
         secondary: '#50f387',

@@ -15,8 +15,8 @@ function App() {
 
   return (
     <Router>
-      <div className="flex flex-col min-h-screen bg-gray-800">
-        <Header language={language} toggleLanguage={toggleLanguage} />
+<div className={`flex flex-col min-h-screen bg-gray-800 ${language === 'ar' ? 'font-arabic' : 'font-english'}`} dir={language === 'ar' ? 'rtl' : 'ltr'}>
+<Header language={language} toggleLanguage={toggleLanguage} />
         <main className="flex-grow">
           <Routes>
             <Route path="/" element={<Home language={language} />} />
