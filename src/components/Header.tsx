@@ -34,7 +34,7 @@ const Header: React.FC<HeaderProps> = ({ language, toggleLanguage }) => {
               className="h-12 w-auto mr-2"
             />
             <span className="text-2xl font-bold text-primary">
-              {language === 'en' ? 'WorkWell' : 'وورك ويل'}
+              {language === 'en' ? 'WorkWell' : 'ورك ويل'}
             </span>
           </div>
           <div className="hidden md:flex items-center">

@@ -10,7 +10,7 @@ const Home: React.FC<HomeProps> = ({ language }) => {
     en: {
       hero: {
         title: 'Connecting Saudi Recruitment Offices with Ethiopian Agencies',
-        subtitle: 'Streamlining the process of sourcing qualified Ethiopian housemaids',
+        subtitle: 'Streamlining the process of sourcing qualified Ethiopian workers',
         cta: 'Our Services'
       },
       features: {
@@ -41,8 +41,8 @@ const Home: React.FC<HomeProps> = ({ language }) => {
       stats: {
         title: 'Our Impact',
         items: [
-          { value: '500+', label: 'Partner Agencies' },
-          { value: '10,000+', label: 'Successful Placements' },
+          { value: '50+', label: 'Partner Agencies' },
+          { value: '2,000+', label: 'Successful Placements' },
           { value: '98%', label: 'Client Satisfaction' }
         ]
       }
@@ -81,8 +81,8 @@ const Home: React.FC<HomeProps> = ({ language }) => {
       stats: {
         title: 'تأثيرنا',
         items: [
-          { value: '+500', label: 'وكالة شريكة' },
-          { value: '+10,000', label: 'تعيين ناجح' },
+          { value: '+50', label: 'وكالة شريكة' },
+          { value: '+2,000', label: 'تعيين ناجح' },
           { value: '98%', label: 'رضا العملاء' }
         ]
       }

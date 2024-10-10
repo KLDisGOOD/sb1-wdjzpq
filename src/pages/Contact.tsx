@@ -8,7 +8,7 @@ interface ContactProps {
 const Contact: React.FC<ContactProps> = ({ language }) => {
   const [formData, setFormData] = useState({
     name: '',
-    email: '',
+    phone: '',
     message: ''
   });
 
@@ -16,7 +16,7 @@ const Contact: React.FC<ContactProps> = ({ language }) => {
     en: {
       title: 'Contact Us',
       name: 'Name',
-      email: 'Email',
+      phone: 'Phone',
       message: 'Message',
       send: 'Send Message',
       thanks: 'Thank you for your message. We will get back to you soon!'
@@ -24,7 +24,7 @@ const Contact: React.FC<ContactProps> = ({ language }) => {
     ar: {
       title: 'اتصل بنا',
       name: 'الاسم',
-      email: 'البريد الإلكتروني',
+      phone: 'رقم الهاتف',
       message: 'الرسالة',
       send: 'إرسال الرسالة',
       thanks: 'شكرا لرسالتك. سنعود إليك قريبا!'
@@ -43,7 +43,7 @@ const Contact: React.FC<ContactProps> = ({ language }) => {
     e.preventDefault();
     console.log('Form submitted:', formData);
     alert(content[language].thanks);
-    setFormData({ name: '', email: '', message: '' });
+    setFormData({ name: '', phone: '', message: '' });
   };
 
   return (
@@ -65,12 +65,12 @@ const Contact: React.FC<ContactProps> = ({ language }) => {
               />
             </div>
             <div className="mb-4">
-              <label htmlFor="email" className="block text-primary font-semibold mb-2">{content[language].email}</label>
+              <label htmlFor="phone" className="block text-primary font-semibold mb-2">{content[language].phone}</label>
               <input
-                type="email"
-                id="email"
-                name="email"
-                value={formData.email}
+                type="phone"
+                id="phone"
+                name="phone"
+                value={formData.phone}
                 onChange={handleChange}
                 required
                 className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary text-gray-800"

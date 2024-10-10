@@ -19,7 +19,7 @@ const Footer: React.FC<FooterProps> = ({ language }) => {
       tagline: 'ربط مكاتب التوظيف السعودية بالوكالات الإثيوبية',
       quickLinks: 'روابط سريعة',
       connect: 'تواصل معنا',
-      rights: '© 2024 وورك ويل. جميع الحقوق محفوظة.'
+      rights: '© 2024 ورك ويل. جميع الحقوق محفوظة.'
     }
   };
 

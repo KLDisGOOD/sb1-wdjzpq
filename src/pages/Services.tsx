@@ -13,7 +13,7 @@ const Services: React.FC<ServicesProps> = ({ language }) => {
         {
           icon: Search,
           title: 'Agency Sourcing',
-          description: 'We identify and vet top Ethiopian agencies to ensure quality housemaid candidates for Saudi recruitment offices.'
+          description: 'We identify and vet top Ethiopian agencies to ensure quality candidates for Saudi recruitment offices.'
         },
         {
           icon: Briefcase,
