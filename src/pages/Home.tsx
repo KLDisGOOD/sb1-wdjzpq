@@ -10,7 +10,7 @@ const Home: React.FC<HomeProps> = ({ language }) => {
   const content = {
     en: {
       hero: {
-        title: 'Connecting Saudi Recruitment Offices with Ethiopian Agencies',
+        title: 'Connecting Saudi Employers with Ethiopian Agencies',
         subtitle: 'Streamlining the process of sourcing qualified Ethiopian workers',
         cta: 'Our Services'
       },
@@ -20,7 +20,7 @@ const Home: React.FC<HomeProps> = ({ language }) => {
           {
             icon: Users,
             title: 'Extensive Network',
-            description: 'Access to a wide network of vetted Ethiopian housemaid agencies.'
+            description: 'Access to a wide network of vetted Ethiopian manpower agencies.'
           },
           {
             icon: Building,
@@ -35,7 +35,7 @@ const Home: React.FC<HomeProps> = ({ language }) => {
           {
             icon: Globe,
             title: 'Cross-Cultural Support',
-            description: 'Facilitating smooth communication between Saudi offices and Ethiopian agencies.'
+            description: 'Facilitating smooth communication between Saudi employers and Ethiopian agencies.'
           }
         ]
       },
@@ -50,8 +50,8 @@ const Home: React.FC<HomeProps> = ({ language }) => {
     },
     ar: {
       hero: {
-        title: 'ربط مكاتب الاستقدام السعودية بالوكالات الإثيوبية',
-        subtitle: 'تبسيط عملية توفير خادمات منزلية إثيوبيات مؤهلات',
+        title: 'ربط مكاتب السعودية بالوكالات الإثيوبية',
+        subtitle: 'تبسيط عملية توفير عمال مؤهلين من إثيوبية',
         cta: 'خدماتنا'
       },
       features: {
@@ -60,7 +60,7 @@ const Home: React.FC<HomeProps> = ({ language }) => {
           {
             icon: Users,
             title: 'شبكة واسعة',
-            description: 'الوصول إلى شبكة واسعة من وكالات الخادمات الإثيوبية الموثوقة.'
+            description: 'الوصول إلى شبكة واسعة من وكالات الإثيوبية الموثوقة.'
           },
           {
             icon: Building,
