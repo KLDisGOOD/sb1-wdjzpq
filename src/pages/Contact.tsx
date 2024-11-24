@@ -56,15 +56,12 @@ const Contact: React.FC<ContactProps> = ({ language }) => {
       });
 
       if (response.ok) {
-        alert(content[language].thanks);
         setFormData({ name: '', phone: '', message: '' });
         setSubmitted(true);
       } else {
-        console.error('Form submission error:', response);
         alert('There was an error submitting the form. Please try again.');
       }
     } catch (error) {
-      console.error('Submission failed:', error);
       alert('There was an error submitting the form. Please try again.');
     } finally {
       setLoading(false);
@@ -73,12 +70,14 @@ const Contact: React.FC<ContactProps> = ({ language }) => {
 
   return (
     <div
-      className={`min-h-screen bg-white text-gray-800 py-12 ${language === 'ar' ? 'font-arabic' : 'font-english'}`}
+      className={`min-h-screen bg-gray-900 text-gray-200 py-12 ${
+        language === 'ar' ? 'font-arabic' : 'font-english'
+      }`}
       dir={language === 'ar' ? 'rtl' : 'ltr'}
     >
       <div className="container mx-auto px-4">
-        <h1 className="text-4xl font-bold mb-8 text-center text-primary">{content[language].title}</h1>
-        <div className="max-w-2xl mx-auto bg-gray-100 p-8 rounded-lg shadow-md">
+        <h1 className="text-4xl font-bold mb-8 text-center text-accent">{content[language].title}</h1>
+        <div className="max-w-2xl mx-auto bg-gray-800 p-8 rounded-lg shadow-lg">
           {submitted && (
             <div className="mb-4 p-4 text-green-800 bg-green-100 rounded-lg">
               {content[language].thanks}
@@ -86,7 +85,9 @@ const Contact: React.FC<ContactProps> = ({ language }) => {
           )}
           <form onSubmit={handleSubmit}>
             <div className="mb-4">
-              <label htmlFor="name" className="block text-primary font-semibold mb-2">{content[language].name}</label>
+              <label htmlFor="name" className="block text-primary font-semibold mb-2">
+                {content[language].name}
+              </label>
               <input
                 type="text"
                 id="name"
@@ -94,11 +95,13 @@ const Contact: React.FC<ContactProps> = ({ language }) => {
                 value={formData.name}
                 onChange={handleChange}
                 required
-                className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary text-gray-800"
+                className="w-full px-3 py-2 bg-gray-700 text-gray-200 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-accent"
               />
             </div>
             <div className="mb-4">
-              <label htmlFor="phone" className="block text-primary font-semibold mb-2">{content[language].phone}</label>
+              <label htmlFor="phone" className="block text-primary font-semibold mb-2">
+                {content[language].phone}
+              </label>
               <input
                 type="phone"
                 id="phone"
@@ -106,11 +109,13 @@ const Contact: React.FC<ContactProps> = ({ language }) => {
                 value={formData.phone}
                 onChange={handleChange}
                 required
-                className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary text-gray-800"
+                className="w-full px-3 py-2 bg-gray-700 text-gray-200 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-accent"
               />
             </div>
             <div className="mb-4">
-              <label htmlFor="message" className="block text-primary font-semibold mb-2">{content[language].message}</label>
+              <label htmlFor="message" className="block text-primary font-semibold mb-2">
+                {content[language].message}
+              </label>
               <textarea
                 id="message"
                 name="message"
@@ -118,18 +123,15 @@ const Contact: React.FC<ContactProps> = ({ language }) => {
                 onChange={handleChange}
                 required
                 rows={4}
-                className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary text-gray-800"
+                className="w-full px-3 py-2 bg-gray-700 text-gray-200 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-accent"
               ></textarea>
             </div>
             <button
               type="submit"
-              className="bg-primary text-white px-6 py-3 rounded-full font-semibold hover:bg-purple-700 transition-colors inline-flex items-center"
+              className="bg-accent text-white px-6 py-3 rounded-full font-semibold hover:bg-accent-dark transition-colors inline-flex items-center"
             >
               {loading ? (
-                <>
-                  <span className="spinner-border animate-spin inline-block w-4 h-4 border-2 border-white border-t-transparent rounded-full mr-2"></span>
-                  Sending...
-                </>
+                <div className="spinner-border animate-spin inline-block w-4 h-4 border-2 border-white border-t-transparent rounded-full mr-2"></div>
               ) : (
                 <>
                   {content[language].send} <Send className="ml-2" />
@@ -139,11 +141,10 @@ const Contact: React.FC<ContactProps> = ({ language }) => {
           </form>
         </div>
       </div>
-
       <style jsx>{`
         .spinner-border {
-          border-color: #ffffff; /* Customize the spinner color */
-          border-width: 2px; /* Customize the width of the spinner */
+          border-color: #ffffff;
+          border-width: 2px;
           border-style: solid;
           border-radius: 50%;
           animation: spin 0.6s linear infinite;

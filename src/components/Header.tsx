@@ -22,7 +22,9 @@ const Header: React.FC<HeaderProps> = ({ language, toggleLanguage }) => {
 
   return (
     <header
-      className={`bg-white text-gray-800 shadow-md ${language === 'ar' ? 'font-arabic' : 'font-english'}`}
+      className={`bg-gray-900 text-gray-200 shadow-md ${
+        language === 'ar' ? 'font-arabic' : 'font-english'
+      }`}
       dir={language === 'ar' ? 'rtl' : 'ltr'}
     >
       <div className="container mx-auto px-4 py-4">
@@ -34,7 +36,7 @@ const Header: React.FC<HeaderProps> = ({ language, toggleLanguage }) => {
               alt="WorkWell Logo"
               className={`h-12 w-auto ${language === 'ar' ? 'ml-2' : 'mr-2'}`}
             />
-            <span className="text-2xl font-bold text-primary">
+            <span className="text-2xl font-bold text-">
               {language === 'en' ? 'WorkWell' : 'ورك ويل'}
             </span>
           </div>
@@ -47,7 +49,7 @@ const Header: React.FC<HeaderProps> = ({ language, toggleLanguage }) => {
                   <li key={index}>
                     <RouterLink
                       to={index === 0 ? '/' : `/${navItems.en[index].toLowerCase()}`}
-                      className="hover:text-primary transition-colors"
+                      className="hover:text-accent transition-colors"
                     >
                       {item}
                     </RouterLink>
@@ -65,7 +67,7 @@ const Header: React.FC<HeaderProps> = ({ language, toggleLanguage }) => {
           <div className="md:hidden">
             <button
               onClick={toggleMenu}
-              className="text-gray-800 focus:outline-none"
+              className="text-gray-200 focus:outline-none"
             >
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -74,14 +76,14 @@ const Header: React.FC<HeaderProps> = ({ language, toggleLanguage }) => {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="md:hidden mt-4">
+          <div className="md:hidden mt-4 bg-gray-800 rounded-lg shadow-lg p-4">
             <nav>
               <ul className="flex flex-col space-y-2">
                 {navItems[language].map((item, index) => (
                   <li key={index}>
                     <RouterLink
                       to={index === 0 ? '/' : `/${navItems.en[index].toLowerCase()}`}
-                      className="block py-2 hover:text-primary transition-colors"
+                      className="block py-2 text-gray-200 hover:text-accent transition-colors"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       {item}
