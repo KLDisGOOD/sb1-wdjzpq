@@ -10,7 +10,7 @@ const Footer: React.FC<FooterProps> = ({ language }) => {
   const content = {
     en: {
       title: 'WorkWell',
-      tagline: 'Bridging Saudi recruitment offices with Ethiopian agencies',
+      tagline: 'Connecting global companies with Ethiopian talent',
       quickLinks: 'Quick Links',
       connect: 'Connect With Us',
       rights: '© 2024 WorkWell. All rights reserved.',
@@ -22,7 +22,7 @@ const Footer: React.FC<FooterProps> = ({ language }) => {
     },
     ar: {
       title: 'ورك ويل',
-      tagline: 'ربط مكاتب التوظيف السعودية بالوكالات الإثيوبية',
+      tagline: 'ربط شركات عالمية مع المهارة الاثيوبيا',
       quickLinks: 'روابط سريعة',
       connect: 'تواصل معنا',
       rights: '© 2024 ورك ويل. جميع الحقوق محفوظة.',
